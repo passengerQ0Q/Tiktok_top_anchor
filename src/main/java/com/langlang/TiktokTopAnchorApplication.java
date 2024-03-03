@@ -1,4 +1,4 @@
-package com.example.tiktok_top_anchor;
+package com.langlang;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
