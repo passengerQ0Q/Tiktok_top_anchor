@@ -3,6 +3,7 @@ package com.langlang.controller;
 
 import com.langlang.domain.Users;
 import com.langlang.service.UserService;
+import com.langlang.utils.Result;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import org.apache.ibatis.annotations.Param;
@@ -20,32 +21,34 @@ public class UserController {
 
     @ApiOperation("登录")
     @RequestMapping(value = "/login")
-    public String login(@RequestBody Users users) {
-        return userService.login(users.getPhone(), users.getPassword());
+    public Result<String> login(@RequestBody Users users) {
+        return Result.success(userService.login(users.getPhone(), users.getPassword()));
     }
 
     //注册
     @ApiOperation("注册")
     @RequestMapping(value = "/regester")
-    public String regester(@RequestBody Users req) {
-        return userService.regester(req);
+    public Result<String> regester(@RequestBody Users req) {
+        return Result.success(userService.regester(req));
     }
 
     //修改用户信息
 
     @ApiOperation(value = "修改用户信息")
     @RequestMapping(value = "/updateUserInfo")
-    public String updateUserInfo(@RequestBody Users req) {
+    public Result<String> updateUserInfo(@RequestBody Users req) {
         userService.updateUserInfo(req);
-        return "更新成功";
+        return Result.success("更新成功");
 
     }
     //获取用户信息
     @ApiOperation(value = "获取用户信息")
     @RequestMapping(value = "/getUserInfo")
-    public Users getUserInfo(@RequestParam Integer phone) {
-        return userService.getUserInfo(phone);
+    public Result<Users> getUserInfo(@RequestParam Integer phone) {
+        return Result.success(userService.getUserInfo(phone));
     }
+
+
 
 
 }
