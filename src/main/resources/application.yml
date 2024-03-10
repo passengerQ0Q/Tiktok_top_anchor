@@ -1,6 +1,4 @@
 
-
-
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/base?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
@@ -8,19 +6,16 @@ spring:
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-  thymeleaf:
+  data:
+    redis:
+      client-type: lettuce
+      port: 6379
+      password: 123456
+      host: 120.76.243.29
+
+thymeleaf:
     cache: false
-#线程池配置
-  dtp:
-    executors:
-      # 线程池1
-      - poolName: dtpExecutor1
-        corePoolSize: 5
-        maximumPoolSize: 10
-      # 线程池2
-      - poolName: dtpExecutor2
-        corePoolSize: 2
-        maximumPoolSize: 15
+
 
 server:
   port: 8888
@@ -30,6 +25,7 @@ mybatis:
   configuration:
    map-underscore-to-camel-case: true
   type-aliases-package: com.milotnt.pojo
+
 
 
 

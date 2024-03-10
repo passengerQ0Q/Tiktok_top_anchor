@@ -1,7 +1,9 @@
 package com.langlang.utils;
 
-import java.time.LocalDateTime;
+import lombok.Data;
 
+import java.time.LocalDateTime;
+@Data
 public class Result<T> {
     private boolean success;
     private int code;

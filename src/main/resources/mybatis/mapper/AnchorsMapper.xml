@@ -19,13 +19,21 @@
     id, traffic_source, audience_demographics, account_tags, gift_income, ad_income, 
     average_stay_duration, followers_count, phone
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="getAnchorList" parameterType="java.lang.Integer" resultType="com.langlang.response.AnchorsRsp">
     <!--@mbg.generated-->
     select
-a.account_tags,a.followers_count,b.username,b.gender
+   a.account_tags,a.followers_count,b.username,b.gender
     from anchors a join user b on
-    a.phone = b.phone
+    a.phone = b.phone where a.phone = #{phone}
   </select>
-
+  <select id="getAnchorInfo" parameterType="java.lang.Integer" resultType="com.langlang.response.AnchorsInfoRsp">
+    <!--@mbg.generated-->
+    select
+    b.username, b.gender,
+    a.traffic_source, a.audience_demographics, a.account_tags, a.gift_income, a.ad_income,
+    a.average_stay_duration, a.followers_count, a.phone
+    from anchors a join user b on
+    a.phone = b.phone where a.phone = #{phone}
+  </select>
 
 </mapper>

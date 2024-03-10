@@ -1,14 +1,16 @@
 package com.langlang.dao;
 
 import com.langlang.domain.Anchors;
+import com.langlang.response.AnchorsInfoRsp;
+import com.langlang.response.AnchorsRsp;
+import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
+@Mapper
 public interface AnchorsMapper {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(Anchors record);
+    List<AnchorsRsp> getAnchorList(Integer phone);
 
-    Anchors selectByPrimaryKey(Integer phone);
-
-
-    int updateByPrimaryKey(Anchors record);
+    AnchorsInfoRsp getAnchorInfo(Integer phone);
 }

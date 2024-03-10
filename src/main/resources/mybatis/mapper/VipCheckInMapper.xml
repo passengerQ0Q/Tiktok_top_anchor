@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.langlang.dao.VipCheckInMapper">
+  <resultMap id="BaseResultMap" type="com.langlang.domain.VipCheckIn">
+    <!--@mbg.generated-->
+    <!--@Table vip_check_in-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="check_num" jdbcType="INTEGER" property="checkNum" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="phone" jdbcType="INTEGER" property="phone" />
+    <result column="is_pass" jdbcType="INTEGER" property="isPass" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, check_num, created_at, updated_at, phone, is_pass
+  </sql>
+  <select id="selectByPhone" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from vip_check_in
+    where phone = #{phone,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.langlang.domain.VipCheckIn" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into vip_check_in (check_num, created_at, updated_at, 
+      phone, is_pass)
+    values (#{checkNum,jdbcType=INTEGER}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, 
+      #{phone,jdbcType=INTEGER}, #{isPass,jdbcType=INTEGER})
+  </insert>
+
+  <update id="updateByPhone" parameterType="com.langlang.domain.VipCheckIn">
+    <!--@mbg.generated-->
+    update vip_check_in
+    set check_num = #{checkNum,jdbcType=INTEGER},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      is_pass = #{isPass,jdbcType=INTEGER}
+    where phone = #{phone,jdbcType=INTEGER}
+  </update>
+</mapper>
