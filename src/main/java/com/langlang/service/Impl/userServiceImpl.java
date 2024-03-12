@@ -2,6 +2,7 @@ package com.langlang.service.Impl;
 
 
 import com.langlang.domain.Admin;
+import com.langlang.domain.User;
 import com.langlang.domain.Users;
 import com.langlang.dao.UserMapper;
 
@@ -24,11 +25,11 @@ public class userServiceImpl implements UserService {
 
     @Override
     public String login(Integer phone, String password) {
-        Users users = userMapper.selectByPhone(phone);
-        if (users == null) {
+        User user = userMapper.selectByPhone(phone);
+        if (user == null) {
             return "用户不存在";
         }
-        if (users.getPassword().equals(password)) {
+        if (user.getPassword().equals(password)) {
             return "登录成功";
         }
         return "账号或者密码不正确";
@@ -36,19 +37,19 @@ public class userServiceImpl implements UserService {
     }
 
     @Override
-    public String regester(Users users) {
+    public String regester(User user) {
 
-        if (userMapper.selectByPhone(users.getPhone()) != null) {
+        if (userMapper.selectByPhone(user.getPhone()) != null) {
             return "手机号已被注册";
         }
 
-        userMapper.insertUser(users);
+        userMapper.insertUser(user);
         return "注册成功";
     }
 
     @Override
-    public Integer updateUserInfo(Users users) {
-        return userMapper.updateUserInfo(users);
+    public Integer updateUserInfo(User user) {
+        return userMapper.updateUserInfo(user);
 
     }
 
@@ -58,7 +59,7 @@ public class userServiceImpl implements UserService {
      * @return
      */
     @Override
-    public Users getUserInfo(Integer phone) {
+    public User getUserInfo(Integer phone) {
         return userMapper.getUserInfo(phone);
     }
 

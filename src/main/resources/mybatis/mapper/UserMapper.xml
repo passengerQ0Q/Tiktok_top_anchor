@@ -3,80 +3,143 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.langlang.dao.UserMapper">
-
     <resultMap id="BaseResultMap" type="com.langlang.domain.User">
         <!--@mbg.generated-->
         <!--@Table `user`-->
-        <id column="id" jdbcType="INTEGER" property="id" />
-        <result column="username" jdbcType="VARCHAR" property="username" />
-        <result column="email" jdbcType="VARCHAR" property="email" />
-        <result column="password" jdbcType="VARCHAR" property="password" />
-        <result column="full_name" jdbcType="VARCHAR" property="fullName" />
-        <result column="birth_date" jdbcType="DATE" property="birthDate" />
-        <result column="gender" jdbcType="OTHER" property="gender" />
-        <result column="address" jdbcType="LONGVARCHAR" property="address" />
-        <result column="city" jdbcType="VARCHAR" property="city" />
-        <result column="country" jdbcType="VARCHAR" property="country" />
-        <result column="zip_code" jdbcType="VARCHAR" property="zipCode" />
-        <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
-        <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
-        <result column="phone" jdbcType="INTEGER" property="phone" />
-        <result column="is_anchor" jdbcType="INTEGER" property="isAnchor" />
-
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="full_name" jdbcType="VARCHAR" property="fullName"/>
+        <result column="birth_date" jdbcType="DATE" property="birthDate"/>
+        <result column="gender" jdbcType="OTHER" property="gender"/>
+        <result column="address" jdbcType="LONGVARCHAR" property="address"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="country" jdbcType="VARCHAR" property="country"/>
+        <result column="zip_code" jdbcType="VARCHAR" property="zipCode"/>
+        <result column="created_at" jdbcType="TIMESTAMP" property="createdAt"/>
+        <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt"/>
+        <result column="phone" jdbcType="INTEGER" property="phone"/>
+        <result column="is_anchor" jdbcType="INTEGER" property="isAnchor"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         <!--@mbg.generated-->
-        id, username, email, `password`, full_name, birth_date, gender, address, city, country,
-        zip_code, created_at, updated_at, phone, is_anchor
+        id,
+        username,
+        email,
+        `password`,
+        full_name,
+        birth_date,
+        gender,
+        address,
+        city,
+        country,
+        zip_code,
+        created_at,
+        updated_at,
+        phone,
+        is_anchor,
+        douJia,
+        diamond
+
+
     </sql>
 
     <select id="selectByAccountAndPassword" resultType="com.langlang.domain.Admin">
         SELECT *
         FROM admin
         WHERE admin_account = #{adminAccount}
-
     </select>
-<!--    通过手机号查询用户信息-->
-    <select id="selectByPhone" resultType="com.langlang.domain.Users">
-        select phone, password from user
+    <!--    通过手机号查询用户信息-->
+    <select id="selectByPhone" resultType="com.langlang.domain.User">
+        select phone, password
+        from user
         <where>
             phone = #{phone}
         </where>
     </select>
-<!--    插入用户信息-->
-        <insert id="insertUser" parameterType="com.langlang.domain.Users">
-            INSERT INTO user
-            <trim prefix="(" suffix=")" suffixOverrides=",">
-                <if test="phone != null">phone,</if>
-                <if test="password != null">password,</if>
-                <if test="username != null">username,</if>
-                <if test="email != null">email,</if>
-                <if test="fullName != null">fullName,</if>
-                <if test="birthDate != null">birthDate,</if>
-                <if test="gender != null">gender,</if>
-                <if test="address != null">address,</if>
-                <if test="city != null">city,</if>
-                <if test="country != null">country,</if>
-                <if test="createdAt != null">createdAt,</if>
-                <if test="updatedAt != null">updatedAt,</if>
-            </trim>
-            VALUES
-            <trim prefix="(" suffix=")" suffixOverrides=",">
-                <if test="phone != null">#{phone},</if>
-                <if test="password != null">#{password},</if>
-                <if test="username != null">#{username},</if>
-                <if test="email != null">#{email},</if>
-                <if test="fullName != null">#{fullName},</if>
-                <if test="birthDate != null">#{birthDate},</if>
-                <if test="gender != null">#{gender},</if>
-                <if test="address != null">#{address},</if>
-                <if test="city != null">#{city},</if>
-                <if test="country != null">#{country},</if>
-                <if test="createdAt != null">#{createdAt},</if>
-                <if test="updatedAt != null">#{updatedAt},</if>
-            </trim>
-        </insert>
+    <!--    插入用户信息-->
+    <insert id="insertUser" parameterType="com.langlang.domain.User">
+        INSERT INTO user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="username != null">
+                username,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="fullName != null">
+                fullName,
+            </if>
+            <if test="birthDate != null">
+                birthDate,
+            </if>
+            <if test="gender != null">
+                gender,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="city != null">
+                city,
+            </if>
+            <if test="country != null">
+                country,
+            </if>
+            <if test="createdAt != null">
+                createdAt,
+            </if>
+            <if test="updatedAt != null">
+                updatedAt,
+            </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="phone != null">
+                #{phone},
+            </if>
+            <if test="password != null">
+                #{password},
+            </if>
+            <if test="username != null">
+                #{username},
+            </if>
+            <if test="email != null">
+                #{email},
+            </if>
+            <if test="fullName != null">
+                #{fullName},
+            </if>
+            <if test="birthDate != null">
+                #{birthDate},
+            </if>
+            <if test="gender != null">
+                #{gender},
+            </if>
+            <if test="address != null">
+                #{address},
+            </if>
+            <if test="city != null">
+                #{city},
+            </if>
+            <if test="country != null">
+                #{country},
+            </if>
+            <if test="createdAt != null">
+                #{createdAt},
+            </if>
+            <if test="updatedAt != null">
+                #{updatedAt},
+            </if>
+        </trim>
+    </insert>
 
 
     <!--    修改密码-->
@@ -87,29 +150,59 @@
         </where>
     </update>
 
-<!--更新用户信息-->
-    <update id="updateUserInfo" parameterType="com.langlang.domain.Users">
+    <!--更新用户信息-->
+    <update id="updateUserInfo" parameterType="com.langlang.domain.User">
         UPDATE user
         <set>
-            <if test="username != null">username = #{username},</if>
-            <if test="email != null">email = #{email},</if>
-            <if test="password != null">password = #{password},</if>
-            <if test="fullName != null">full_name = #{fullName},</if>
-            <if test="birthDate != null">birth_date = #{birthDate},</if>
-            <if test="gender != null">gender = #{gender},</if>
-            <if test="address != null">address = #{address},</if>
-            <if test="city != null">city = #{city},</if>
-            <if test="country != null">country = #{country},</if>
-            <if test="zipCode != null">zip_code = #{zipCode},</if>
-
-            <if test="createdAt != null">created_at = #{createdAt},</if>
-            <if test="updatedAt != null">updated_at = #{updatedAt},</if>
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="fullName != null">
+                full_name = #{fullName},
+            </if>
+            <if test="birthDate != null">
+                birth_date = #{birthDate},
+            </if>
+            <if test="gender != null">
+                gender = #{gender},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="city != null">
+                city = #{city},
+            </if>
+            <if test="country != null">
+                country = #{country},
+            </if>
+            <if test="zipCode != null">
+                zip_code = #{zipCode},
+            </if>
+            <if test="diamond != null">
+                diamond = #{diamond},
+            </if>
+            <if test="douJia != null">
+                douJia = #{douJia},
+            </if>
+            <if test="createdAt != null">
+                created_at = #{createdAt},
+            </if>
+            <if test="updatedAt != null">
+                updated_at = #{updatedAt},
+            </if>
         </set>
         WHERE phone = #{phone}
     </update>
 
-    <select id="getUserInfo" resultType="com.langlang.domain.Users">
-        select  <include refid="Base_Column_List"/>
+    <select id="getUserInfo" resultType="com.langlang.domain.User">
+        select
+        <include refid="Base_Column_List"/>
         from user
         <where>
             phone = #{phone}

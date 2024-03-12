@@ -22,9 +22,9 @@
   <select id="getAnchorList" parameterType="java.lang.Integer" resultType="com.langlang.response.AnchorsRsp">
     <!--@mbg.generated-->
     select
-   a.account_tags,a.followers_count,b.username,b.gender
+   a.account_tags,a.followers_count,b.username,b.gender, b.updated_at
     from anchors a join user b on
-    a.phone = b.phone where a.phone = #{phone}
+    a.phone = b.phone order by b.updated_at desc
   </select>
   <select id="getAnchorInfo" parameterType="java.lang.Integer" resultType="com.langlang.response.AnchorsInfoRsp">
     <!--@mbg.generated-->

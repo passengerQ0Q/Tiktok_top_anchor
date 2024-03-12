@@ -11,14 +11,14 @@ public interface UserMapper {
 
 
     Admin selectByAccountAndPassword(Integer adminAccount);
-    Users selectByPhone(Integer Phone);
+    User selectByPhone(Integer Phone);
 
-    Integer insertUser(Users user);
+    Integer insertUser(User user);
 
-    Integer updateUserPassword(Users user);
+    Integer updateUserPassword(User user);
 
 
-    Integer updateUserInfo(Users users);
+    Integer updateUserInfo(User user);
 
-    Users getUserInfo(Integer Phone);
+    User getUserInfo(Integer Phone);
 }

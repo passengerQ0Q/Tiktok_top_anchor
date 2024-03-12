@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface AnchorsMapper {
 
-    List<AnchorsRsp> getAnchorList(Integer phone);
+    List<AnchorsRsp> getAnchorList();
 
     AnchorsInfoRsp getAnchorInfo(Integer phone);
 }

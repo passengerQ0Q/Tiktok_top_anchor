@@ -85,6 +85,16 @@ public class User {
     private Integer isAnchor;
 
 
+    /**
+     * 是否是主播
+     */
+    private Integer douJia;
+
+    /**
+     * 钻石数
+     */
+    private Integer diamond;
+
 
 
 

@@ -1,6 +1,7 @@
 package com.langlang.controller;
 
 
+import com.langlang.domain.User;
 import com.langlang.domain.Users;
 import com.langlang.service.UserService;
 import com.langlang.utils.Result;
@@ -25,14 +26,14 @@ public class UserController {
 
     //    @ApiOperation("登录")
     @RequestMapping(value = "/login")
-    public Result<String> login(@RequestBody Users users) {
-        return Result.success(userService.login(users.getPhone(), users.getPassword()));
+    public Result<String> login(@RequestBody User user) {
+        return Result.success(userService.login(user.getPhone(), user.getPassword()));
     }
 
     //注册
 //    @ApiOperation("注册")
     @RequestMapping(value = "/regester")
-    public Result<String> regester(@RequestBody Users req) {
+    public Result<String> regester(@RequestBody User req) {
         return Result.success(userService.regester(req));
     }
 
@@ -40,7 +41,7 @@ public class UserController {
 
     //    @ApiOperation(value = "修改用户信息")
     @RequestMapping(value = "/updateUserInfo")
-    public Result<String> updateUserInfo(@RequestBody Users req) {
+    public Result<String> updateUserInfo(@RequestBody User req) {
         userService.updateUserInfo(req);
         return Result.success("更新成功");
 
@@ -49,7 +50,7 @@ public class UserController {
     //获取用户信息
 //    @ApiOperation(value = "获取用户信息")
     @RequestMapping(value = "/getUserInfo")
-    public Result<Users> getUserInfo(@RequestParam Integer phone) {
+    public Result<User> getUserInfo(@RequestParam Integer phone) {
         return Result.success(userService.getUserInfo(phone));
     }
 
