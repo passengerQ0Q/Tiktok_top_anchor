@@ -190,6 +190,9 @@
             <if test="douJia != null">
                 douJia = #{douJia},
             </if>
+            <if test="isVip != null">
+                is_vip = #{isVip},
+            </if>
             <if test="createdAt != null">
                 created_at = #{createdAt},
             </if>

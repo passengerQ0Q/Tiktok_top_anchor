@@ -13,6 +13,15 @@ spring:
       password: 123456
       host: 120.76.243.29
 
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: pushservice-system-web
+      auto-offset-reset: earliest
+    producer:
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+
 thymeleaf:
     cache: false
 

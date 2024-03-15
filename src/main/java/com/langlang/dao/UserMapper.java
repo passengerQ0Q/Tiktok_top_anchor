@@ -3,7 +3,6 @@ package com.langlang.dao;
 
 import com.langlang.domain.Admin;
 import com.langlang.domain.User;
-import com.langlang.domain.Users;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

@@ -24,6 +24,8 @@ public class AnchorsServiceImpl implements AnchorsService {
     private UserMapper userMapper;
     @Autowired
     private RedisTemplate redisTemplate;
+    @Autowired
+    private AnchorsMapper achorsMapper;
 
     @Override
     public List<AnchorsRsp> getAnchorsList(Integer phone) {
@@ -50,5 +52,10 @@ public class AnchorsServiceImpl implements AnchorsService {
     @Override
     public AnchorsInfoRsp getAnchorInfo(Integer phone) {
         return anchorsMapper.getAnchorInfo(phone);
+    }
+
+    @Override
+    public List<AnchorsRsp> getAnchorTypeList(Integer anchorType) {
+        return achorsMapper.getAnchorTypeList(anchorType);
     }
 }

@@ -94,6 +94,10 @@ public class User {
      * 钻石数
      */
     private Integer diamond;
+    /**
+     * 0: 非会员、1：会员 、2 ：年费会员
+     */
+    private Integer isVip;
 
 
 

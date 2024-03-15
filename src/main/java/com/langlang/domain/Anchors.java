@@ -42,6 +42,10 @@ public class Anchors {
     * 粉丝量级
     */
     private Long followersCount;
+    /**
+    * 粉丝量级
+    */
+    private Integer anchorType;
 
     /**
     * 主播电话号

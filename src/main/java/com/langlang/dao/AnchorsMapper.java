@@ -13,4 +13,6 @@ public interface AnchorsMapper {
     List<AnchorsRsp> getAnchorList();
 
     AnchorsInfoRsp getAnchorInfo(Integer phone);
+
+    List<AnchorsRsp> getAnchorTypeList(Integer anchorType);
 }

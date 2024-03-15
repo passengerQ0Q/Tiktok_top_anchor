@@ -1,26 +1,17 @@
 package com.langlang.service.Impl;
 
 
-import com.langlang.domain.Admin;
-import com.langlang.domain.User;
-import com.langlang.domain.Users;
 import com.langlang.dao.UserMapper;
-
+import com.langlang.domain.User;
 import com.langlang.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class userServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-    @Override
-    public List<Users> getUsers() {
-        return null;
-    }
 
 
     @Override

@@ -1,19 +1,12 @@
 package com.langlang.service;
 
 
-
-import com.langlang.domain.Admin;
 import com.langlang.domain.User;
-import com.langlang.domain.Users;
-
-import java.util.List;
 
 /**
  * 用户登录接口
  */
 public interface UserService {
-   //获取主播列表
-    public List<Users> getUsers();
 
     //登录
     public String login(Integer phone, String password);

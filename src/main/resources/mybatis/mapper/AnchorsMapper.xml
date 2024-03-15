@@ -35,5 +35,11 @@
     from anchors a join user b on
     a.phone = b.phone where a.phone = #{phone}
   </select>
-
+  <select id="getAnchorTypeList" parameterType="java.lang.Integer" resultType="com.langlang.response.AnchorsRsp">
+    <!--@mbg.generated-->
+    select
+    a.account_tags,a.followers_count,b.username,b.gender, b.updated_at
+    from anchors a join user b on
+    a.phone = b.phone where a.anchor_type = #{anchorType}
+  </select>
 </mapper>
