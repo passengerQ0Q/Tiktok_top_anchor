@@ -27,7 +27,7 @@ thymeleaf:
 
 
 server:
-  port: 8888
+  port: 8080
 mybatis:
 
   mapper-locations: classpath:mybatis/mapper/*.xml

@@ -1,7 +1,9 @@
 package com.langlang.dao;
 
 import com.langlang.domain.SeckillOrder;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface SeckillOrderMapper {
     int deleteByPrimaryKey(String orderid);
 
