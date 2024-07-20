@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.langlang.dao.SeckillOrderMapper">
+  <resultMap id="BaseResultMap" type="com.langlang.domain.SeckillOrder">
+    <!--@mbg.generated-->
+    <id column="OrderID" jdbcType="VARCHAR" property="orderid" />
+    <result column="UserID" jdbcType="VARCHAR" property="userid" />
+    <result column="ProductID" jdbcType="VARCHAR" property="productid" />
+    <result column="ProductName" jdbcType="VARCHAR" property="productname" />
+    <result column="SeckillPrice" jdbcType="DECIMAL" property="seckillprice" />
+    <result column="OriginalPrice" jdbcType="DECIMAL" property="originalprice" />
+    <result column="Quantity" jdbcType="INTEGER" property="quantity" />
+    <result column="OrderStatus" jdbcType="VARCHAR" property="orderstatus" />
+    <result column="OrderTime" jdbcType="TIMESTAMP" property="ordertime" />
+    <result column="PaymentTime" jdbcType="TIMESTAMP" property="paymenttime" />
+    <result column="ShippingAddress" jdbcType="VARCHAR" property="shippingaddress" />
+    <result column="ContactPhone" jdbcType="VARCHAR" property="contactphone" />
+    <result column="PaymentMethod" jdbcType="VARCHAR" property="paymentmethod" />
+    <result column="OrderRemark" jdbcType="VARCHAR" property="orderremark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    OrderID, UserID, ProductID, ProductName, SeckillPrice, OriginalPrice, Quantity, OrderStatus, 
+    OrderTime, PaymentTime, ShippingAddress, ContactPhone, PaymentMethod, OrderRemark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from seckillOrder
+    where OrderID = #{orderid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from seckillOrder
+    where OrderID = #{orderid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.langlang.domain.SeckillOrder">
+    <!--@mbg.generated-->
+    insert into seckillOrder (OrderID, UserID, ProductID,
+      ProductName, SeckillPrice, OriginalPrice, 
+      Quantity, OrderStatus, OrderTime, 
+      PaymentTime, ShippingAddress, ContactPhone, 
+      PaymentMethod, OrderRemark)
+    values (#{orderid,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, 
+      #{productname,jdbcType=VARCHAR}, #{seckillprice,jdbcType=DECIMAL}, #{originalprice,jdbcType=DECIMAL}, 
+      #{quantity,jdbcType=INTEGER}, #{orderstatus,jdbcType=VARCHAR}, #{ordertime,jdbcType=TIMESTAMP}, 
+      #{paymenttime,jdbcType=TIMESTAMP}, #{shippingaddress,jdbcType=VARCHAR}, #{contactphone,jdbcType=VARCHAR}, 
+      #{paymentmethod,jdbcType=VARCHAR}, #{orderremark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.langlang.domain.SeckillOrder">
+    <!--@mbg.generated-->
+    insert into seckillOrder
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        OrderID,
+      </if>
+      <if test="userid != null">
+        UserID,
+      </if>
+      <if test="productid != null">
+        ProductID,
+      </if>
+      <if test="productname != null">
+        ProductName,
+      </if>
+      <if test="seckillprice != null">
+        SeckillPrice,
+      </if>
+      <if test="originalprice != null">
+        OriginalPrice,
+      </if>
+      <if test="quantity != null">
+        Quantity,
+      </if>
+      <if test="orderstatus != null">
+        OrderStatus,
+      </if>
+      <if test="ordertime != null">
+        OrderTime,
+      </if>
+      <if test="paymenttime != null">
+        PaymentTime,
+      </if>
+      <if test="shippingaddress != null">
+        ShippingAddress,
+      </if>
+      <if test="contactphone != null">
+        ContactPhone,
+      </if>
+      <if test="paymentmethod != null">
+        PaymentMethod,
+      </if>
+      <if test="orderremark != null">
+        OrderRemark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="seckillprice != null">
+        #{seckillprice,jdbcType=DECIMAL},
+      </if>
+      <if test="originalprice != null">
+        #{originalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="quantity != null">
+        #{quantity,jdbcType=INTEGER},
+      </if>
+      <if test="orderstatus != null">
+        #{orderstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertime != null">
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymenttime != null">
+        #{paymenttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shippingaddress != null">
+        #{shippingaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="contactphone != null">
+        #{contactphone,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentmethod != null">
+        #{paymentmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="orderremark != null">
+        #{orderremark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.langlang.domain.SeckillOrder">
+    <!--@mbg.generated-->
+    update seckillOrder
+    <set>
+      <if test="userid != null">
+        UserID = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        ProductID = #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        ProductName = #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="seckillprice != null">
+        SeckillPrice = #{seckillprice,jdbcType=DECIMAL},
+      </if>
+      <if test="originalprice != null">
+        OriginalPrice = #{originalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="quantity != null">
+        Quantity = #{quantity,jdbcType=INTEGER},
+      </if>
+      <if test="orderstatus != null">
+        OrderStatus = #{orderstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertime != null">
+        OrderTime = #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymenttime != null">
+        PaymentTime = #{paymenttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shippingaddress != null">
+        ShippingAddress = #{shippingaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="contactphone != null">
+        ContactPhone = #{contactphone,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentmethod != null">
+        PaymentMethod = #{paymentmethod,jdbcType=VARCHAR},
+      </if>
+      <if test="orderremark != null">
+        OrderRemark = #{orderremark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where OrderID = #{orderid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.langlang.domain.SeckillOrder">
+    <!--@mbg.generated-->
+    update seckillOrder
+    set UserID = #{userid,jdbcType=VARCHAR},
+      ProductID = #{productid,jdbcType=VARCHAR},
+      ProductName = #{productname,jdbcType=VARCHAR},
+      SeckillPrice = #{seckillprice,jdbcType=DECIMAL},
+      OriginalPrice = #{originalprice,jdbcType=DECIMAL},
+      Quantity = #{quantity,jdbcType=INTEGER},
+      OrderStatus = #{orderstatus,jdbcType=VARCHAR},
+      OrderTime = #{ordertime,jdbcType=TIMESTAMP},
+      PaymentTime = #{paymenttime,jdbcType=TIMESTAMP},
+      ShippingAddress = #{shippingaddress,jdbcType=VARCHAR},
+      ContactPhone = #{contactphone,jdbcType=VARCHAR},
+      PaymentMethod = #{paymentmethod,jdbcType=VARCHAR},
+      OrderRemark = #{orderremark,jdbcType=VARCHAR}
+    where OrderID = #{orderid,jdbcType=VARCHAR}
+  </update>
+</mapper>
