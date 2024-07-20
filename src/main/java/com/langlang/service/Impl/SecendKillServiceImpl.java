@@ -51,7 +51,6 @@ public class SecendKillServiceImpl implements SecendKillService {
             // 创建订单逻辑
             // 假设有个订单数据库
             // String orderId = orderDb.createOrder(userId, productId);
-
             System.out.println("用户" + userId + "成功购买商品" + productId);
             return true;
         } finally {
