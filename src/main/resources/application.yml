@@ -13,6 +13,7 @@ spring:
       password: 123456
       host: 120.76.243.29
 
+
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
@@ -22,9 +23,17 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
 
+
+
 thymeleaf:
     cache: false
-
+binlog:
+  mysql:
+    host: 120.76.243.29
+    port: 3306
+    username: root
+    password: 12345678
+    database: basic
 
 server:
   port: 8080
