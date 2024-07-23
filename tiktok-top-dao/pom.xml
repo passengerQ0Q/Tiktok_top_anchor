@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.langlang</groupId>
+        <artifactId>Tiktok_top_anchor</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>tiktok-top-dao</artifactId>
+
+    <dependencyManagement>
+
+    <dependencies>
+        <!-- 引入tiktok-top-client模块 -->
+        <dependency>
+            <groupId>com.langlang</groupId> <!-- 使用你自己的groupId -->
+            <artifactId>tiktok-top-client</artifactId>
+            <version>${project.version}</version> <!-- 确保版本与父POM中的版本一致 -->
+        </dependency>
+    </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.14</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.langlang</groupId>
+            <artifactId>tiktok-top-client</artifactId>
+        </dependency>
+    </dependencies>
+</project>
